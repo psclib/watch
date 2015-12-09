@@ -15,9 +15,9 @@
 #include "wav_adpcm.h"
 #include "log.h"
 
-#define OUT_FILE "result_nnu_pca.txt"
-#define NNU 1
-#define REPEAT 10
+#define OUT_FILE "result_nns.txt"
+//#define NNU 1
+#define REPEAT 3
 #include "nnu_float.h"
 
 //#define OUT_FILE "result_nnu_pca.txt"

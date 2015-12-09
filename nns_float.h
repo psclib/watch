@@ -667,9 +667,14 @@ int nns(NNUDictionary *dict, FLOAT_T *X, int X_rows)
 {
     int D_rows = dict->D_rows;
     int D_cols = dict->D_cols;
+    int X_cols = 1;
     int max_idx = 0;
     FLOAT_T max_coeff = 0.0;
     FLOAT_T *D = dict->D;
+
+    /* zero mean and unit norm */
+    normalize_colwise(X, X_rows, X_cols);
+    subtract_colwise(X, dict->D_mean, X_rows, X_cols);
 
     compute_max_dot(&max_coeff, &max_idx, D, d_viewcol(X, 0, X_rows),
                     D_rows, D_cols);
